@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/Map.gd" type="Script" id=1]
+[ext_resource path="res://tscn/tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://scripts/GridVisualizer.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Grid.gd" type="Script" id=4]
+[ext_resource path="res://scripts/GridLighter.gd" type="Script" id=5]
+[ext_resource path="res://effect/Explosion.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/audio/match_fail.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/match_success.wav" type="AudioStream" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "game_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Grid:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "game_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Grid:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Map" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Grid" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+tile_set = ExtResource( 2 )
+format = 1
+script = ExtResource( 4 )
+
+[node name="GridVisualizer" type="Node2D" parent="Grid"]
+script = ExtResource( 3 )
+
+[node name="GridLighter" type="Node2D" parent="Grid"]
+modulate = Color( 0.807843, 0.913725, 0.0666667, 1 )
+script = ExtResource( 5 )
+
+[node name="Explosion" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="Explosion2" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="MatchFailAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
+[node name="MatchSuccessAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/game_in = SubResource( 1 )
+anims/game_out = SubResource( 2 )

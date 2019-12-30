@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tscn/source_regular.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/BasicScreen.gd" type="Script" id=2]
+
+[node name="BasicScreen" type="CanvasLayer"]
+offset = Vector2( 0, -800 )
+transform = Transform2D( 1, 0, 0, 1, 0, -800 )
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 80
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 80.0
+margin_right = 1004.0
+margin_bottom = 727.0
+mouse_filter = 0
+custom_constants/separation = 100
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 94.0
+mouse_filter = 0
+custom_fonts/font = ExtResource( 1 )
+text = "标题"
+align = 1
+valign = 1
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 194.0
+margin_right = 984.0
+margin_bottom = 194.0
+mouse_filter = 0
+custom_constants/separation = 150
+alignment = 1
+
+[node name="Buttons2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 294.0
+margin_right = 984.0
+margin_bottom = 294.0
+mouse_filter = 0
+custom_constants/separation = 150
+alignment = 1
+
+[node name="Tween" type="Tween" parent="."]

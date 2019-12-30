@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/well_done.wav-d9eb87eb4624cb345c44e87020671bd3.sample"
+
+[deps]
+
+source_file="res://assets/audio/well_done.wav"
+dest_files=[ "res://.import/well_done.wav-d9eb87eb4624cb345c44e87020671bd3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

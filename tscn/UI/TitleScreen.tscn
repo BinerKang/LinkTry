@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/img/play.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/settings.png" type="Texture" id=2]
+[ext_resource path="res://tscn/UI/BasicScreen.tscn" type="PackedScene" id=3]
+
+[node name="TitleScreen" instance=ExtResource( 3 )]
+
+[node name="Label" parent="MarginContainer/VBoxContainer" index="0"]
+text = "一  起  连  连  看"
+
+[node name="Buttons" parent="MarginContainer/VBoxContainer" index="1"]
+margin_bottom = 290.0
+
+[node name="Play" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons" index="0" groups=[
+"buttons",
+]]
+margin_left = 321.0
+margin_right = 417.0
+margin_bottom = 96.0
+mouse_filter = 1
+texture_normal = ExtResource( 1 )
+
+[node name="Settings" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons" index="1" groups=[
+"buttons",
+]]
+margin_left = 567.0
+margin_right = 663.0
+margin_bottom = 96.0
+mouse_filter = 1
+texture_normal = ExtResource( 2 )
+
+[node name="Buttons2" parent="MarginContainer/VBoxContainer" index="2"]
+margin_top = 390.0
+margin_bottom = 390.0
